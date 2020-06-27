@@ -14,11 +14,13 @@
     "react-scripts": "3.4.1"
   },
   "scripts": {
-    "start": "webpack-dev-server --open",
-    "client":"webpack-dev-server --config ./config/webpack.config.js --open --mode development",
-    "build":"webpack --config ./config/webpack.config.js --mode development",
-    "test": "webpack-dev-server --test",
-    "eject": "webpack-dev-server --eject"
+    "server": "nodemon src/server/server.js  --exec babel-node",
+    "client": "webpack-dev-server --config ./config/webpack.config.dev.js",
+    "build": "webpack --config ./config/webpack.config.js --mode production",
+    "dev": "NODE_ENV=development concurrently \"npm run client\" \"npm run server\"",
+    "start": "NODE_ENV=production npm run build && npm run server",
+    "test": "mocha --require ./test/enzyme.js --compilers js:babel-register --recursive $(find test -name '*.spec.js')"
+
   },
   "eslintConfig": {
     "extends": "react-app"
