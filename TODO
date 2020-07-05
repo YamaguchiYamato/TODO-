@@ -4,8 +4,10 @@ Todo App:
      ✔ Const newTodoの追加 @done(20-06-27 11:13)
      ☐ TODO表示
   6章:
+    ✔ ビルド @done(20-07-03 17:45)
     
   7章:
 
 脱Create-react-app:
-  ☐ expressの環境構築
+  ✔ expressの環境構築 @done(20-07-03 17:45)
+  ☐ expressサーバーの立ち上げ

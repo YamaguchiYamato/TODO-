@@ -14,12 +14,17 @@ const TodoApp = () => {
 
   const add = () => {
     //setTodoListの配列の先頭にvalueの値が追加される。
-    const newTodo = {id: todoList.length, content: value};
+    const newTodo = { id: todoList.length, content: value };
     const newTodoList = [...todoList, newTodo];
     setTodoList(newTodoList);
 
     //実行後にsetValueが空に置き換わる。
     setValue("");
+  };
+
+  const handleDelete = id => {
+    const newTodoList = todoList.filter(todo => todo.id !== id);
+    setTodoList(newTodoList);
   };
 
   //liタグ中のkeyにtodoListのインデックス、表示内容にtodoListが格納される。
@@ -30,7 +35,11 @@ const TodoApp = () => {
         <AddTodo onChange={handleChange} add={add} />
       <ul>
         {todoList.map(todo => (
-          <TodoElement key={todo.id} content={todo.content} />
+          <TodoElement
+            key={todo.id}
+            content={todo.content}
+            onDelete={() => handleDelete(todo.id)}
+          />
             ))}
         </ul>
       </div>
@@ -53,6 +62,9 @@ const TodoElement = props => {
   return (
     <li>
       {props.content}
+      <button onClick={props.onDelete}>削除</button>
     </li>
-  )
-}
+  );
+};
+
+ReactDOM.render(<div> Hello World </div>, document.getElementById("root"));
