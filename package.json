@@ -14,7 +14,8 @@
     "react-scripts": "3.4.1"
   },
   "scripts": {
-    "start": "./node_modules/.bin/webpack-dev-server"
+    "client": "webpack-dev-server --config ./config/webpack.config.js --open --mode development",
+    "build": "webpack --config ./config/webpack.config.js --mode development"
   },
   "eslintConfig": {
     "extends": "react-app"
