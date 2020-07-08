@@ -67,4 +67,10 @@ const TodoElement = props => {
   );
 };
 
-ReactDOM.render(<div> Hello World </div>, document.getElementById("root"));
+ReactDOM.render(
+  <React.StrictMode>
+    <TodoApp />
+    <AddTodo />
+    <TodoElement />
+  </React.StrictMode>,
+  document.getElementById("index"));
