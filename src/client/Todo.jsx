@@ -18,11 +18,14 @@ const TodoApp = () => {
   const add = () => {
     //setTodoListの配列の先頭にvalueの値が追加される。
     const newTodo = { id: todoList.length, content: value };
+    if (newTodo.content !== "") {
+      
     const newTodoList = [...todoList, newTodo];
     setTodoList(newTodoList);
 
     //実行後にsetValueが空に置き換わる。
     setValue("");
+    };
   };
 
   const handleDelete = id => {
