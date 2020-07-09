@@ -6,7 +6,7 @@ const htmlWebpackPlugin = new HtmlWebPackPlugin({
   filename: "./index.html"
 });
  module.exports = {
-  entry: "./src/client/index.js",
+  entry: "./src/client/index.jsx",
   output: {
     path: path.resolve('dist'),
     filename: '[name].js'
@@ -14,7 +14,7 @@ const htmlWebpackPlugin = new HtmlWebPackPlugin({
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.jsx$/,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader"
@@ -25,6 +25,9 @@ const htmlWebpackPlugin = new HtmlWebPackPlugin({
         use: ["style-loader", "css-loader"]
       }
     ]
-  },
+   },
+   resolve: {
+     extensions: ['.js', '.jsx']
+   },
   plugins: [htmlWebpackPlugin]
 }; 
