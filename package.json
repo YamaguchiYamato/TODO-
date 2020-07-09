@@ -15,10 +15,8 @@
   },
   "scripts": {
     "client": "webpack-dev-server --config ./config/webpack.config.js --open --mode development",
-    "build": "webpack --config ./config/webpack.config.js --mode development"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
+    "build": "webpack --config ./config/webpack.config.js --mode development",
+    "lint":"eslint src"
   },
   "browserslist": {
     "production": [

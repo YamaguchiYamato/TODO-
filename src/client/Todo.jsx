@@ -9,6 +9,7 @@ const TodoApp = () => {
   //新規追加用
   const [value, setValue] = useState("");
   const [todoList, setTodoList] = useState([]);
+  const [EditFlag, setEditFlag] = useState(false);
 
 
   const handleChange = e => {
@@ -18,7 +19,7 @@ const TodoApp = () => {
 
   const add = () => {
     //setTodoListの配列の先頭にvalueの値が追加される。
-    const newTodo = { id: todoList.length, content: value };
+    const newTodo = { id: todoList.length, content: value ,Flag:EditFlag };
     //未入力の場合は追加不可
     //追加直後の追加動作も不可
     if (newTodo.content !== "") {
@@ -30,13 +31,12 @@ const TodoApp = () => {
     setValue("");
     };
   };
-
   const handleEdit = id => {
-    //input呼び出し
-    const TargetTodo = todoList.filter(todo => todo.id == id);
-    TargetTodo.content=
-    //TodoListから、idと一致するTodoのContentを新規入力した値で置き換え
-    
+    setEditFlag(true);
+  };
+
+  const handleSave = id => {
+    setEditFlag(false);
   };
 
   const handleDelete = id => {
@@ -55,7 +55,9 @@ const TodoApp = () => {
           <TodoElement
             key={todo.id}
             content={todo.content}
-            onEdit = {() => handleEdit(todo.id)}
+            EditFlag={todo.Flag}
+            onEdit={() => handleEdit(todo.id)}
+            onChange={()=>handleChange}
             onDelete={() => handleDelete(todo.id)}
           />
             ))}
