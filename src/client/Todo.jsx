@@ -19,11 +19,16 @@ const TodoApp = () => {
   const add = () => {
     //setTodoListの配列の先頭にvalueの値が追加される。
     const newTodo = { id: todoList.length, content: value };
+    //未入力の場合は追加不可
+    //追加直後の追加動作も不可
+    if (newTodo.content !== "") {
+      
     const newTodoList = [...todoList, newTodo];
     setTodoList(newTodoList);
 
     //実行後にsetValueが空に置き換わる。
     setValue("");
+    };
   };
 
   const handleEdit = id => {
@@ -44,7 +49,7 @@ const TodoApp = () => {
     <div>
       <h1>TODO App</h1>
       <div>
-        <AddTodo onChange={handleChange} add={add} />
+        <AddTodo value={value} onChange={handleChange} add={add} />
       <ul>
         {todoList.map(todo => (
           <TodoElement
