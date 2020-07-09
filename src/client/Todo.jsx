@@ -6,6 +6,7 @@ import TodoElement from './TodoElement';
 
 //親コンポーネント
 const TodoApp = () => {
+  //新規追加用
   const [value, setValue] = useState("");
   const [todoList, setTodoList] = useState([]);
 
@@ -25,6 +26,14 @@ const TodoApp = () => {
     setValue("");
   };
 
+  const handleEdit = id => {
+    //input呼び出し
+    const TargetTodo = todoList.filter(todo => todo.id == id);
+    TargetTodo.content=
+    //TodoListから、idと一致するTodoのContentを新規入力した値で置き換え
+    
+  };
+
   const handleDelete = id => {
     const newTodoList = todoList.filter(todo => todo.id !== id);
     setTodoList(newTodoList);
@@ -41,6 +50,7 @@ const TodoApp = () => {
           <TodoElement
             key={todo.id}
             content={todo.content}
+            onEdit = {() => handleEdit(todo.id)}
             onDelete={() => handleDelete(todo.id)}
           />
             ))}
