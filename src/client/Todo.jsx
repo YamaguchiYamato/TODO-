@@ -40,7 +40,7 @@ const TodoApp = () => {
     <div>
       <h1>TODO App</h1>
       <div>
-        <AddTodo onChange={handleChange} add={add} />
+        <AddTodo value={value} onChange={handleChange} add={add} />
       <ul>
         {todoList.map(todo => (
           <TodoElement
