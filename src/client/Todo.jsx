@@ -18,6 +18,8 @@ const TodoApp = () => {
   const add = () => {
     //setTodoListの配列の先頭にvalueの値が追加される。
     const newTodo = { id: todoList.length, content: value };
+    //未入力の場合は追加不可
+    //追加直後の追加動作も不可
     if (newTodo.content !== "") {
       
     const newTodoList = [...todoList, newTodo];
