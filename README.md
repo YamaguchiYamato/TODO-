@@ -1,3 +1,50 @@
+# TODOー
+
+React hooks 学習用のTODOアプリになります。
+
+# DEMO
+
+画像をご参照ください。
+
+# Features
+
+* テキストボックスによる追加機能
+* 空白であった場合の追加不可制御
+* 削除機能
+* 編集機能(現在修正中)
+
+# Requirement
+
+* react: 16.13.1
+* webpack: 4.43.0
+* babel-loader: 7
+* express: 4.17.1
+
+# Installation
+
+yarn 
+
+# Usage
+
+開発環境での実行になります。
+リポジトリクローン後に下記コマンドをターミナル上で実行してご確認ください。
+yarn client
+
+# Note
+
+Sign In ボタン実装　
+ボタン押下時にconsole.logでユーザー情報が更新されることを確認（2020／07／15）
+
+# Author
+
+* KouheiYamaguchi
+* Personal
+* messala2319@gmail.com
+
+# License
+KouheiYamaguchi
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
